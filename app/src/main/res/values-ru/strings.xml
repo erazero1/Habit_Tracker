@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Трекер Привычек</string>
+    <string name="today_item_title">СЕГОДНЯ</string>
+    <string name="profile_item_title">ПРОФИЛЬ</string>
+    <string name="history_item_title">ИСТОРИЯ</string>
+    <string name="monday_short">ПН</string>
+    <string name="tuesday_short">ВТ</string>
+    <string name="wednesday_short">СР</string>
+    <string name="thursday_short">ЧТ</string>
+    <string name="friday_short">ПТ</string>
+    <string name="saturday_short">СБ</string>
+    <string name="sunday_short">ВС</string>
+    <string name="all_option">ВСЕ</string>
+    <string name="anytime_option">НЕВАЖНО</string>
+    <string name="morning_option">УТРОМ</string>
+    <string name="afternoon_option">ДНЕМ</string>
+    <string name="evening_option">ВЕЧЕРОМ</string>
+    <string name="regular_option">РЕГУЛЯРНАЯ</string>
+    <string name="negative_option">ВРЕДНАЯ</string>
+    <string name="one_time_to_do_option">ОДНОРАЗОВАЯ</string>
+    <string name="create_your_own_button">СОЗДАТЬ</string>
+    <string name="habit_name_hint">Название привычки</string>
+    <string name="regular_habit_text">Регулярная привычка</string>
+    <string name="negative_habit_text">Вредная привычка</string>
+    <string name="one_time_to_do_text">Одноразовая</string>
+    <string name="repeat_hint">Повторение</string>
+    <string name="do_it_at_text">Выполнить...</string>
+    <string name="daily_goal_text">Цель на день</string>
+    <string name="goal_text">Цель</string>
+</resources>

@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Habit Tracker</string>
+
+
+    <string name="loading">Loading...</string>
+    <string name="error_empty_field">This is required field</string>
+    <string name="error_user_not_found">User with this Email doesn\'t exist</string>
+    <string name="error_invalid_pass_or_email">Incorrect Email or password</string>
+    <string name="sign_up_successful">Sign Up is successful!</string>
+    <string name="sign_in_successful">Sign In is successful!</string>
+    <string name="first_name">Name</string>
+
+    <string name="today_item_title">TODAY</string>
+    <string name="history_item_title">HISTORY</string>
+    <string name="profile_item_title">PROFILE</string>
+    <string name="monday_short">MON</string>
+    <string name="tuesday_short">TUE</string>
+    <string name="wednesday_short">WED</string>
+    <string name="thursday_short">THU</string>
+    <string name="friday_short">FRI</string>
+    <string name="saturday_short">SAT</string>
+    <string name="sunday_short">SUN</string>
+    <string name="all_option">ALL</string>
+    <string name="anytime_option">ANYTIME</string>
+    <string name="morning_option">MORNING</string>
+    <string name="afternoon_option">AFTERNOON</string>
+    <string name="evening_option">EVENING</string>
+    <string name="regular_option">REGULAR</string>
+    <string name="negative_option">NEGATIVE</string>
+    <string name="one_time_to_do_option">ONE-TIME-DO</string>
+    <string name="create_your_own_button">CREATE YOUR OWN</string>
+    <string name="habit_name_hint">Habit name</string>
+    <string name="regular_habit_text">Regular habit</string>
+    <string name="negative_habit_text">Negative habit</string>
+    <string name="one_time_to_do_text">One-time todo</string>
+    <string name="repeat_hint">REPEAT</string>
+    <string name="do_it_at_text">Do it at</string>
+    <string name="daily_goal_text">Daily goal</string>
+    <string name="goal_text">Goal</string>
+    <string name="sign_in">Sign in</string>
+    <string name="welcome">Welcome</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="welcome_chat_message">Hello! Thank you for downloading our app. Here you can track your habits and create a new one. For now, you can take a closer look at the application. If you have any questions, you can write a message here and our assistants will answer you as soon as possible. Good luck! 😉 </string>
+    <string name="registration">Registration</string>
+    <string name="error_email_exist">User with this Email is already exists</string>
+    <string name="error_wake_password">Password must contain at lest 6 characters</string>
+    <string name="error_type_correct_email">Enter the correct Email</string>
+    <string name="error_type_crown_passwords">Enter the same passwords</string>
+    <string name="error_wake_password_NL">Password must contain numbers and letters</string>
+    <string name="main_welcome">Welcome to Habit Tracker</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="username">username</string>
+
+</resources>
