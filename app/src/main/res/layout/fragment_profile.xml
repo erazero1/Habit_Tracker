@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    tools:context=".ui.main.ProfileFragment"
+    android:background="@color/dark_gray">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Profile Fragment" />
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_item_title"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_margin="15dp"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:backgroundTint="@color/background_color"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp">
+
+
+            <ImageView
+                android:id="@+id/ivPhoto"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/ic_launcher_background"/>
+
+            <Button
+                android:id="@+id/btnUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/background_color"
+                android:text="@string/username"
+                android:layout_marginStart="110dp"
+                />
+
+
+        </FrameLayout>
+    </LinearLayout>
 
 </FrameLayout>

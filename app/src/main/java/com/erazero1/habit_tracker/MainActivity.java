@@ -2,14 +2,8 @@ package com.erazero1.habit_tracker;
 
 
 import android.os.Bundle;
-import android.view.MenuItem;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import com.erazero1.habit_tracker.TodayFragment.*;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
-
-import java.io.*;
 
 public class MainActivity extends AppCompatActivity {
 

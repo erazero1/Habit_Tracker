@@ -1,6 +1,9 @@
+import org.jetbrains.kotlin.ir.backend.js.compile
+
 plugins {
     id("com.android.application")
     id("com.google.devtools.ksp")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -18,6 +21,9 @@ android {
     }
 
     buildTypes {
+        viewBinding{
+            enable = true
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -32,15 +38,20 @@ android {
     }
 }
 
+
 dependencies {
+    implementation("com.google.firebase:firebase-database:20.3.1")
+    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.android.gms:play-services-auth:21.1.0")
+
     val room_version = "2.6.1"
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
 
     // To use Kotlin Symbol Processing (KSP)
     ksp("androidx.room:room-compiler:$room_version")
-
-
+    implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
