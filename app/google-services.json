@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "800340597369",
+    "project_id": "habit-tracker-e31fd",
+    "storage_bucket": "habit-tracker-e31fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:800340597369:android:f7a310c1db347ab299d2a8",
+        "android_client_info": {
+          "package_name": "com.erazero1.habit_tracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQv8yVM8hBmsKHjEayNV5IFyUdKL8Q2Bs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
