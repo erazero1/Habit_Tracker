@@ -1,4 +1,5 @@
 package com.erazero1.habit_tracker.ui.auth;
+
 import static com.erazero1.habit_tracker.models.Constants.SP_USER_SIGN_KEY;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import com.erazero1.habit_tracker.R;
 import com.erazero1.habit_tracker.databinding.ActivitySignUpBinding;
 import com.erazero1.habit_tracker.models.Auth;
+import com.erazero1.habit_tracker.models.Constants;
 import com.erazero1.habit_tracker.models.User;
 import com.erazero1.habit_tracker.ui.main.MainActivity;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
@@ -41,25 +43,26 @@ public class SignUpActivity extends AppCompatActivity {
         // Registration button
         binding.btnSignUp.setOnClickListener(view -> {
             String email = binding.etEmail.getText().toString();
+            String username = binding.etUsername.getText().toString();
             String passwd = binding.etPassword.getText().toString();
             String repeatPasswd = binding.etRepeatPassword.getText().toString();
 
 
             // If all fields not null
-            if (!isFieldsEmpty(email, passwd, repeatPasswd)){
+            if (!isFieldsEmpty(email, passwd, repeatPasswd, username)) {
                 // If password is valid
                 if (validatePassword(passwd)) {
                     // If both passwords are same
-                    if (passwd.equals(repeatPasswd)){       // pass1 == pass2
+                    if (passwd.equals(repeatPasswd)) {       // pass1 == pass2
                         binding.emailLayout.setErrorEnabled(false);
                         binding.passwordLayout.setErrorEnabled(false);
                         binding.passwordRepeatLayout.setErrorEnabled(false);
 
                         showLoading();
-                        signUp(email,passwd);
+                        signUp(email, passwd, username);
 
 
-                    } else{                                 // pass1 != pass2
+                    } else {                                 // pass1 != pass2
                         Toast.makeText(SignUpActivity.this,
                                 getString(R.string.error_type_crown_passwords),
                                 Toast.LENGTH_SHORT).show();
@@ -83,9 +86,8 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
 
-
     // Registration
-    private void signUp(String email, String passwd) {
+    private void signUp(String email, String passwd, String username) {
         Auth.auth.createUserWithEmailAndPassword(email, passwd)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {      // Sign up successful!
@@ -99,11 +101,10 @@ public class SignUpActivity extends AppCompatActivity {
                         sp.edit().putString("passwd", passwd).apply();
 
                         DatabaseReference push = Auth.users.push();
-                        User user = new User(email, passwd, "",
+                        User user = new User(email, passwd, username, "",
                                 Auth.auth.getUid(), push.getKey());
                         user.setUserIndicator(User.CLIENT_INDICATOR);
                         push.setValue(user);
-
 
 
                         Auth.signIn(this, email, passwd, isSigned -> {
@@ -112,16 +113,16 @@ public class SignUpActivity extends AppCompatActivity {
                                     MainActivity.class);
                             intent.setFlags(
                                     Intent.FLAG_ACTIVITY_NO_ANIMATION
-                                            |Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                            |Intent.FLAG_ACTIVITY_NEW_TASK);
+                                            | Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                            | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
                         });
 
-                    }else{
+                    } else {
                         hideLoading();
-                        try{
+                        try {
                             throw task.getException();
-                        }catch(FirebaseAuthInvalidCredentialsException ex){     // Invalid email
+                        } catch (FirebaseAuthInvalidCredentialsException ex) {     // Invalid email
                             if (ex.getErrorCode().equals("ERROR_INVALID_EMAIL")) {
                                 binding.passwordLayout.setErrorEnabled(false);
 
@@ -133,7 +134,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 binding.emailLayout.setError(getString(R.string.error_type_correct_email));
                                 binding.etEmail.requestFocus();
 
-                            }else if (ex.getErrorCode().equals("ERROR_WEAK_PASSWORD")){     // Invalid password
+                            } else if (ex.getErrorCode().equals("ERROR_WEAK_PASSWORD")) {     // Invalid password
                                 binding.emailLayout.setErrorEnabled(false);
 
                                 Toast.makeText(getApplicationContext(),
@@ -144,8 +145,8 @@ public class SignUpActivity extends AppCompatActivity {
                                 binding.passwordLayout.setError(getString(R.string.error_wake_password));
                                 binding.etPassword.requestFocus();
                             }
-                        }
-                        catch (FirebaseAuthUserCollisionException ex){      // User already exists
+                        } catch (
+                                FirebaseAuthUserCollisionException ex) {      // User already exists
                             binding.passwordLayout.setErrorEnabled(false);
 
                             Toast.makeText(SignUpActivity.this,
@@ -155,14 +156,13 @@ public class SignUpActivity extends AppCompatActivity {
                             binding.emailLayout.setError(getString(R.string.error_email_exist));
                             binding.etEmail.requestFocus();
 
-                        }catch (Exception ex){      // Another exception
+                        } catch (Exception ex) {      // Another exception
                             Log.d("signUpException", ex.getMessage());
                         }
                     }
 
                 });
     }
-
 
 
     // Password validation
@@ -188,45 +188,50 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
 
-
     // Check all fields for null
-    private boolean isFieldsEmpty(String email, String passwd, String repeatPasswd){
+    private boolean isFieldsEmpty(String email, String passwd, String repeatPasswd, String username) {
 
         binding.emailLayout.setErrorEnabled(false);
         binding.passwordLayout.setErrorEnabled(false);
         binding.passwordRepeatLayout.setErrorEnabled(false);
         boolean isFieldsEmpty = false;
 
-        if (TextUtils.isEmpty(email.trim())){
+        if (TextUtils.isEmpty(email.trim())) {
             binding.emailLayout.setErrorEnabled(true);
             binding.emailLayout.setError(getString(R.string.error_empty_field));
             isFieldsEmpty = true;
         }
 
-        if (TextUtils.isEmpty(passwd.trim())){
+        if (TextUtils.isEmpty(passwd.trim())) {
             binding.passwordLayout.setErrorEnabled(true);
             binding.passwordLayout.setError(getString(R.string.error_empty_field));
             isFieldsEmpty = true;
 
         }
-        if (TextUtils.isEmpty(repeatPasswd.trim())){
+        if (TextUtils.isEmpty(repeatPasswd.trim())) {
             binding.passwordRepeatLayout.setErrorEnabled(true);
             binding.passwordRepeatLayout.setError(getString(R.string.error_empty_field));
             isFieldsEmpty = true;
         }
 
+        if (TextUtils.isEmpty(username.trim())) {
+            binding.usernameLayout.setErrorEnabled(true);
+            binding.usernameLayout.setError(getString(R.string.error_empty_field));
+            isFieldsEmpty = true;
+        }
 
-        return  isFieldsEmpty;
+
+        return isFieldsEmpty;
     }
 
-    private void showLoading(){
+    private void showLoading() {
         dialog = new ProgressDialog(this);
         dialog.setMessage(getString(R.string.loading));
         dialog.setCancelable(false);
         dialog.show();
     }
 
-    private void hideLoading(){
+    private void hideLoading() {
         dialog.cancel();
     }
 

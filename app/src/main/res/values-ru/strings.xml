@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Трекер Привычек</string>
+    <string name="loading">Загрузка...</string>
+    <string name="error_empty_field">Это необходимое поле</string>
+    <string name="error_user_not_found">Ползователь с такой почтой не существует</string>
+    <string name="error_invalid_pass_or_email">Некорректная Почта или пароль</string>
+    <string name="sign_up_successful">Регистрация успешна</string>
+    <string name="sign_in_successful">Вход в систему успешно</string>
+    <string name="first_name">Имя</string>
     <string name="today_item_title">СЕГОДНЯ</string>
     <string name="profile_item_title">ПРОФИЛЬ</string>
     <string name="history_item_title">ИСТОРИЯ</string>
@@ -28,4 +35,23 @@
     <string name="do_it_at_text">Выполнить...</string>
     <string name="daily_goal_text">Цель на день</string>
     <string name="goal_text">Цель</string>
+    <string name="sign_in">Вход</string>
+    <string name="welcome">Добро пожаловать</string>
+    <string name="email">Почта</string>
+    <string name="password">Пароль</string>
+    <string name="forgot_password">Забыл пароль</string>
+    <string name="sign_up">Зарегистрироваться</string>
+    <string name="welcome_chat_message">Привет! Благодарим вас за загрузку нашего приложения. Здесь вы можете отслеживать свои привычки и создавать новые. А пока вы можете ознакомиться с приложением поближе. Если у вас есть какие-либо вопросы, вы можете написать сообщение здесь, и наши помощники ответят вам как можно скорее. Удачи! 😉</string>
+    <string name="registration">Регистрация</string>
+    <string name="error_email_exist">Ползователь с такой почтой уже существует</string>
+    <string name="error_wake_password">Пароль должен содержать как минимум 6 символов</string>
+    <string name="error_type_correct_email">Введите корректную Почту</string>
+    <string name="error_type_crown_passwords">Введите одинаковые пароли</string>
+    <string name="error_wake_password_NL">Пароль должен содержать цифры и буквы</string>
+    <string name="main_welcome">Добро пожаловать в Трекер Привычек</string>
+    <string name="repeat_password">Повторите пароль</string>
+    <string name="username">Логин</string>
+    <string name="cancel">Отмена</string>
+    <string name="log_out">Выйти</string>
+    <string name="hello_blank_fragment">Привет пустой фрагмент</string>
 </resources>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:backgroundTint="@color/background_color"
+>
+
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:backgroundTint="@color/background_color"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp">
+
+
+        <ImageView
+            android:background="@drawable/baseline_person_24"
+            android:id="@+id/ivPhotoPopUp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:id="@+id/tvUsernamePopUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_text"
+            android:text="@string/username"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:id="@+id/tvEmailPopUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:textColor="@color/primary_text"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="30dp"
+            />
+        <Button
+            android:id="@+id/btnLogOut"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:text="@string/log_out"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/base_blue"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="70dp"/>
+        <Button
+            android:id="@+id/btnCancelPopUp"
+            android:layout_width="100dp"
+            android:textColor="@color/white"
+            android:layout_height="40dp"
+            android:text="@string/cancel"
+            android:backgroundTint="@color/base_blue"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="110dp"/>
+    </FrameLayout>
+
+
+</LinearLayout>

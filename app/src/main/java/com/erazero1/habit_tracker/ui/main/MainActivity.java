@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.erazero1.habit_tracker.R;
+import com.erazero1.habit_tracker.databinding.ActivityMainBinding;
+import com.erazero1.habit_tracker.databinding.ActivitySignUpBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import android.os.Handler;
@@ -17,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private TodayFragment todayFragment;
     private HistoryFragment historyFragment;
     private ProfileFragment profileFragment;
+    private BottomSheetFragment bottomSheetFragment;
+    private ActivityMainBinding activityMainBinding;
 
     @Override
     protected void onStart() {
@@ -27,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(activityMainBinding.getRoot());
         Log.d("MainActivity", "onCreate");
         initUi();
         initFragments();
@@ -38,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     public void initUi() {
         Log.d("MainActivity", "initUi");
 
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView = activityMainBinding.bottomNavigationView;
         bottomNavigationView.setItemIconTintList(null);
         Log.d("main_init_ui", "Ui are init");
 
@@ -49,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         todayFragment = new TodayFragment();
         historyFragment = new HistoryFragment();
         profileFragment = new ProfileFragment();
+        bottomSheetFragment = new BottomSheetFragment();
         Log.d("main_init_fragments", "Fragments are init");
 
     }

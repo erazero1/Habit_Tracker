@@ -14,23 +14,25 @@
             android:id="@+id/sign_up_toolbar"
             android:layout_width="match_parent"
             android:background="@color/white"
-            app:title="Co-Trucking"
+            app:title="Habit Tracker"
             android:layout_height="?attr/actionBarSize"
             />
     </com.google.android.material.appbar.AppBarLayout>
+
 
     <TextView
         android:id="@+id/tvMainReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/app_bar_layout"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="108dp"
         android:text="@string/registration"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="36sp" />
-
 
     <TextView
         android:layout_width="wrap_content"
@@ -72,6 +74,27 @@
                 android:inputType="textEmailAddress"
                 android:maxLength="60" />
 
+        </com.google.android.material.textfield.TextInputLayout>
+        
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:hint="@string/username"
+            app:counterEnabled="true"
+            app:counterMaxLength="60"
+            app:startIconDrawable="@drawable/baseline_person_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="_-1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@."
+                android:inputType="textPersonName"
+                android:maxLength="60" />
         </com.google.android.material.textfield.TextInputLayout>
 
 

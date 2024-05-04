@@ -1,5 +1,9 @@
 package com.erazero1.habit_tracker.models;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -15,20 +19,31 @@ public class Habit implements Serializable {
     private int duration;
     private byte repeats;
     private boolean reminderForThisHabit = false;
+    private String nameOfHabit;
+    private int typeOfHabit;
     private String endOn;
-    private String key;
+    private String id;
+    private boolean isChecked = false;
 
-    public void setKey(String key) {
-        this.key = key;
+    public Habit(String nameOfHabit, int duration, boolean isChecked) {
+        this.nameOfHabit = nameOfHabit;
+        this.duration = duration;
+        this.isChecked = isChecked;
+    }
+
+    public void setKey(String id) {
+        this.id = id;
     }
 
     public String getKey() {
-        return key;
+        return id;
     }
 
     public Habit(){}
-    public Habit(String iconUri, String iconColor, ArrayList<String> repeatDays, String doItAt, String goal, int duration, boolean reminderForThisHabit, String endOn) {
+    public Habit(String iconUri, int typeOfHabit, String nameOfHabit, String iconColor, ArrayList<String> repeatDays, String doItAt, String goal, int duration, boolean reminderForThisHabit, String endOn) {
         this.iconUri = iconUri;
+        this.nameOfHabit = nameOfHabit;
+        this.typeOfHabit = typeOfHabit;
         this.iconColor = iconColor;
         this.repeatDays = repeatDays;
         this.doItAt = doItAt;
@@ -129,5 +144,17 @@ public class Habit implements Serializable {
 
     public void setEndOn(String endOn) {
         this.endOn = endOn;
+    }
+
+    public String getNameOfHabit() {
+        return nameOfHabit;
+    }
+
+    public int getTypeOfHabit() {
+        return typeOfHabit;
+    }
+
+    public boolean isChecked(){
+        return isChecked;
     }
 }

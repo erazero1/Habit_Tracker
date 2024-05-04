@@ -2,6 +2,7 @@ package com.erazero1.habit_tracker.models;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.TimeZone;
 
 public class User implements Serializable {
     public static final int CLIENT_INDICATOR = 0;
@@ -10,6 +11,7 @@ public class User implements Serializable {
     private String email;
     private String passwd;
     private String name;
+    private String username;
     private String phone;
     private String profileDescription;
     private String avatarUri;
@@ -24,12 +26,18 @@ public class User implements Serializable {
     public User(){}
 
 
-    public User(String email, String passwd, String name, String UID, String key) {
+    public String getUsername() {
+        return username;
+    }
+
+    public User(String email, String passwd, String username, String name, String UID, String key) {
         this.email = email;
         this.passwd = passwd;
+        this.username = username;
         this.name = name;
         this.UID = UID;
         this.key = key;
+        this.createdTimeInMillis = Calendar.getInstance().getTimeInMillis();
     }
 
     public String getEmail() {
@@ -54,6 +62,15 @@ public class User implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", passwd='" + passwd + '\'' +
+                ", name='" + name + '\'' +
+                '}';
     }
 
     public String getUID() {

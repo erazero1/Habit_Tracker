@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_color"
+    android:background="@color/background_color"
     tools:context=".ui.auth.EntryActivity">
 
     <TextView
@@ -20,14 +20,6 @@
         android:textColor="@color/white"
         android:textSize="38sp" />
 
-
-    <ImageView
-        android:id="@+id/image_icon_app"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:src="@drawable/app_logo"
-        android:layout_gravity="center"
-        android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@+id/tv_copyright"

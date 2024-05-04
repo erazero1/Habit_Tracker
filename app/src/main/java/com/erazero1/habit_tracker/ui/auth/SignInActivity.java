@@ -28,6 +28,7 @@ public class SignInActivity extends AppCompatActivity {
     private ProgressDialog dialog;
 
     private ActivitySignInBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,14 +45,13 @@ public class SignInActivity extends AppCompatActivity {
         binding.btnSignIn.setOnClickListener(view -> {
             String email = binding.etEmail.getText().toString();
             String passwd = binding.etPassword.getText().toString();
-            if (!isFieldsEmpty(email, passwd)){
+            if (!isFieldsEmpty(email, passwd)) {
                 showLoading();
                 binding.emailLayout.setErrorEnabled(false);
                 binding.passwordLayout.setErrorEnabled(false);
                 signIn(email, passwd);
             }
         });
-
 
 
         // Reset Password Button
@@ -63,10 +63,10 @@ public class SignInActivity extends AppCompatActivity {
 
 
     // User authorization
-    private void signIn(String email, String passwd){
+    private void signIn(String email, String passwd) {
         Auth.auth.signInWithEmailAndPassword(email, passwd)
                 .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()){
+                    if (task.isSuccessful()) {
                         SharedPreferences sp = getSharedPreferences(Constants.SP_USER_SIGN_KEY, MODE_PRIVATE);
                         sp.edit().putString("UID", Auth.auth.getUid()).apply();
                         sp.edit().putString("email", email).apply();
@@ -80,30 +80,29 @@ public class SignInActivity extends AppCompatActivity {
                                 Auth.updateUserInFireBase(user);
                                 hideLoading();
                                 Intent intent = new Intent(SignInActivity.this, MainActivity.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
                             }
                         });
 
-                    }else{
+                    } else {
                         hideLoading();
                         try {
                             throw task.getException();
-                        }catch(FirebaseAuthInvalidUserException ex){
+                        } catch (FirebaseAuthInvalidUserException ex) {
                             Toast.makeText(SignInActivity.this,
                                     getString(R.string.error_user_not_found),
                                     Toast.LENGTH_SHORT).show();
 
                             binding.emailLayout.setErrorEnabled(true);
                             binding.emailLayout.setError(getString(R.string.error_user_not_found));
-                        }catch (FirebaseAuthInvalidCredentialsException ex){
+                        } catch (FirebaseAuthInvalidCredentialsException ex) {
                             binding.emailLayout.setErrorEnabled(false);
                             Toast.makeText(SignInActivity.this,
                                     getString(R.string.error_invalid_pass_or_email),
                                     Toast.LENGTH_SHORT).show();
-                        }
-                        catch (Exception ex){
-                            Log.d("signInException",  ex.getMessage());
+                        } catch (Exception ex) {
+                            Log.d("signInException", ex.getMessage());
                         }
                     }
 
@@ -111,40 +110,38 @@ public class SignInActivity extends AppCompatActivity {
     }
 
 
-    private void showLoading(){
+    private void showLoading() {
         dialog = new ProgressDialog(this);
         dialog.setMessage(getString(R.string.loading));
         dialog.setCancelable(false);
         dialog.show();
     }
 
-    private void hideLoading(){
+    private void hideLoading() {
         dialog.cancel();
     }
 
 
-
-    private boolean isFieldsEmpty(String email, String passwd){
+    private boolean isFieldsEmpty(String email, String passwd) {
         binding.emailLayout.setErrorEnabled(false);
         binding.passwordLayout.setErrorEnabled(false);
         boolean isFieldsEmpty = false;
 
-        if (TextUtils.isEmpty(email)){
+        if (TextUtils.isEmpty(email)) {
             binding.emailLayout.setErrorEnabled(true);
             binding.emailLayout.setError(getString(R.string.error_empty_field));
             isFieldsEmpty = true;
         }
 
-        if (TextUtils.isEmpty(passwd)){
+        if (TextUtils.isEmpty(passwd)) {
             binding.passwordLayout.setErrorEnabled(true);
             binding.passwordLayout.setError(getString(R.string.error_empty_field));
             isFieldsEmpty = true;
 
         }
 
-        return  isFieldsEmpty;
+        return isFieldsEmpty;
     }
-
 
 
     @Override
