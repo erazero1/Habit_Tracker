@@ -10,4 +10,10 @@
         <item name="dividerColor">@color/divider_color</item>
         <item name="rippleColor">@color/dark_primary_color</item>
     </style>
+    
+    <style name="ToolBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@color/background_color</item>
+    </style>
 </resources>

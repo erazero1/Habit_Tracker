@@ -6,4 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.add_habit.AddOneTimeToDoHabit">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="One time"
+        android:textColor="@color/dark_gray"
+
+        tools:layout_editor_absoluteX="347dp"
+        tools:layout_editor_absoluteY="107dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

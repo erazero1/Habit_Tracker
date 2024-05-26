@@ -1,5 +1,6 @@
 package com.erazero1.habit_tracker.ui.main;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -16,12 +17,14 @@ import android.widget.ImageView;
 
 import com.erazero1.habit_tracker.databinding.FragmentProfileBinding;
 import com.erazero1.habit_tracker.models.Auth;
+import com.erazero1.habit_tracker.models.TimePeriod;
 
 
 public class ProfileFragment extends Fragment {
     private FragmentProfileBinding binding;
-    private Button btnUsername;
+    private Button btnUsername, btnTimePeriods;
     private ImageView ivPhoto;
+    private Intent intent;
 
 
     public ProfileFragment() {
@@ -57,6 +60,7 @@ public class ProfileFragment extends Fragment {
     private void initUi() {
         Log.d("ProfileFragment", "initUi");
         btnUsername = binding.btnUsername;
+        btnTimePeriods = binding.btnTimePeriods;
         ivPhoto = binding.ivPhoto;
 
         btnUsername.setText(Auth.currentUser.getUsername());
@@ -75,6 +79,11 @@ public class ProfileFragment extends Fragment {
         } catch (Exception e) {
             Log.d("ProfileFragment", e.toString());
         }
+
+        btnTimePeriods.setOnClickListener(view -> {
+            intent = new Intent(getActivity(), TimePeriodsActivity.class);
+            startActivity(intent);
+        });
 
     }
 

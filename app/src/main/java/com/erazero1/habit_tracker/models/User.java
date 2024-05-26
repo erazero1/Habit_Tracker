@@ -1,8 +1,9 @@
 package com.erazero1.habit_tracker.models;
 
+import com.google.firebase.database.Exclude;
+
 import java.io.Serializable;
 import java.util.Calendar;
-import java.util.TimeZone;
 
 public class User implements Serializable {
     public static final int CLIENT_INDICATOR = 0;
@@ -146,6 +147,7 @@ public class User implements Serializable {
         this.avatarUri = avatarUri;
     }
 
+    @Exclude
     public Calendar getCreatedDateTime(){
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(this.createdTimeInMillis);

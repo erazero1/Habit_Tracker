@@ -4,13 +4,12 @@ package com.erazero1.habit_tracker.ui.main;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import com.erazero1.habit_tracker.R;
 import com.erazero1.habit_tracker.databinding.ActivityMainBinding;
-import com.erazero1.habit_tracker.databinding.ActivitySignUpBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import android.os.Handler;
 import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,6 +32,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(activityMainBinding.getRoot());
+
+        if (savedInstanceState == null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.flFragment, new TodayFragment())
+                    .commit();
+        }
+
         Log.d("MainActivity", "onCreate");
         initUi();
         initFragments();

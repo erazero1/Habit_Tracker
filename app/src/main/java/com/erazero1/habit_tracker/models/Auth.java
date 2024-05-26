@@ -9,6 +9,9 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.erazero1.habit_tracker.interfaces.OnDataUserReceivedListener;
+import com.erazero1.habit_tracker.interfaces.OnUserSignedListener;
+import com.erazero1.habit_tracker.ui.auth.SignInActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -16,9 +19,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.erazero1.habit_tracker.interfaces.OnUserSignedListener;
-import com.erazero1.habit_tracker.ui.auth.SignInActivity;
-import com.erazero1.habit_tracker.interfaces.OnDataUserReceivedListener;
 
 public class Auth {
     public static FirebaseDatabase db = FirebaseDatabase.getInstance(Constants.FB_URL_CONNECTION);

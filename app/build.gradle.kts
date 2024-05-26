@@ -13,10 +13,11 @@ android {
     defaultConfig {
         applicationId = "com.erazero1.habit_tracker"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 24
         versionCode = 1
         versionName = "1.0"
 
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -44,6 +45,7 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.android.gms:play-services-auth:21.1.0")
+    implementation("com.google.code.gson:gson:2.10.1")
 
     val room_version = "2.6.1"
     implementation("androidx.room:room-runtime:$room_version")

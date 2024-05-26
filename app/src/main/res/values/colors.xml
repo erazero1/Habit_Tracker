@@ -14,4 +14,7 @@
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#757575</color>
     <color name="divider_color">#BDBDBD</color>
+    <color name="icon_color_night">#FF000000</color>
+    <color name="icon_color_light">#FFFFFFFF</color>
+    <color name="back_gray">#1B171E</color>
 </resources>
